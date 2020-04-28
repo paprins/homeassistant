@@ -6,8 +6,9 @@
 
 homeassistant:
   name: Home
-  latitude: !secret latitude
-  longitude: !secret longitude
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  elevation: !secret zone_home_elevation
   unit_system: metric
   time_zone: Europe/Amsterdam
   whitelist_external_dirs:
@@ -39,6 +40,8 @@ lovelace:
   resources:
     - type: module
       url: /hacsfiles/custom-header/custom-header.js
+    - type: module
+      url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 # default_config:
@@ -90,9 +93,6 @@ system_health:
 updater:
   reporting: false
 
-# Track the sun
-sun:
-
 sensor:
   - platform: time_date
     display_options:
@@ -101,12 +101,14 @@ sensor:
   - platform: dnsip
   - platform: synologydsm
     host: !secret synology_ip
+    port: !secret synology_port
+    ssl: false
     username: !secret synology_user
     password: !secret synology_password
     monitored_conditions:
       - cpu_total_load
       - memory_real_usage
-      - network_up
-      - network_down
       - disk_status
+      - volume_size_total
       - volume_size_used
+      - volume_percentage_used
