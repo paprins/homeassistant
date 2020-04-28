@@ -1,0 +1,9 @@
+weather:
+  - platform: buienradar
+    name: zwartewaal
+    latitude: !secret latitude
+    longitude: !secret longitude
+    forecast: true
+
+camera:
+  - platform: buienradar

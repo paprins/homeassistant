@@ -1,0 +1,8 @@
+---
+path: outside
+title: Buiten
+icon: mdi:nature-people
+cards:
+  - type: picture-entity
+    state_filter: []
+    entity: camera.buienradar_loop

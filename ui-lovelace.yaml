@@ -14,3 +14,4 @@ custom_header:
 
 views:
   - !include lovelace/10-toon.yaml
+  - !include lovelace/20-outside.yaml

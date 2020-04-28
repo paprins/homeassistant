@@ -90,9 +90,6 @@ system_health:
 updater:
   reporting: false
 
-# Add configuration panel
-config:
-
 # Track the sun
 sun:
 
