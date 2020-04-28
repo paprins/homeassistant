@@ -1,0 +1,9 @@
+---
+path: lights
+title: Lights
+icon: mdi:lightbulb-on
+cards:
+  - type: vertical-stack
+    cards:
+      - type: light
+        entity: light.lightstrip
