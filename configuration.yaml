@@ -1,9 +1,18 @@
+####################################################
+#                                                  #
+#                 HOME ASSISTANT                   #
+#                                                  #
+####################################################
+
 homeassistant:
   name: Home
   latitude: !secret latitude
   longitude: !secret longitude
   unit_system: metric
   time_zone: Europe/Amsterdam
+  whitelist_external_dirs:
+    - /config
+    - /share
 
   packages: !include_dir_named integrations
 
@@ -15,12 +24,33 @@ homeassistant:
         - 10.0.1.0/24
       allow_bypass_login: true
     - type: homeassistant
+
+# DO THIS: https://www.home-assistant.io/docs/configuration/splitting_configuration/
     
+####################################################
+#                                                  #
+#                     GENERAL                      #
+#                                                  #
+####################################################
+
 lovelace:
   mode: yaml
+  
+  resources:
+    - type: module
+      url: /hacsfiles/custom-header/custom-header.js
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
+# default_config:
+
+#https://home-assistant.io/components/config/
+config:
+
+#https://www.home-assistant.io/hassio/
+hassio:
+
+#https://home-assistant.io/components/history/
+history:
 
 logger: !include includes/system/logger.yaml
 
@@ -50,21 +80,6 @@ frontend:
 #        data:
 #          mac: !secret samsungtv_mac
 
-# Sensors
-sensor:
-  - platform: dnsip
-  - platform: synologydsm
-    host: !secret synology_ip
-    username: !secret synology_user
-    password: !secret synology_password
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - network_up
-      - network_down
-      - disk_status
-      - volume_size_used
-
 # Enables person component
 person:
 
@@ -86,3 +101,15 @@ sensor:
     display_options:
       - 'time'
       - 'date'
+  - platform: dnsip
+  - platform: synologydsm
+    host: !secret synology_ip
+    username: !secret synology_user
+    password: !secret synology_password
+    monitored_conditions:
+      - cpu_total_load
+      - memory_real_usage
+      - network_up
+      - network_down
+      - disk_status
+      - volume_size_used
