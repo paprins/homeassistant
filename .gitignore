@@ -2,6 +2,9 @@
 # Created by https://www.gitignore.io/api/homeassistant
 # Edit at https://www.gitignore.io/?templates=homeassistant
 
+### Custom ###
+harmony_*.conf
+
 ### HomeAssistant ###
 # Files with personal details
 *.crt

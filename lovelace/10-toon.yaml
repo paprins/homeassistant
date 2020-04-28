@@ -1,0 +1,12 @@
+title: Home
+icon: 'mdi:home'
+panel: false
+path: home
+badges: []
+cards:
+  - type: entities
+    entities:
+      - sensor.current_power_usage
+      - sensor.average_power_usage
+      - sensor.power_usage_today
+    title: Energie

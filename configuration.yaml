@@ -4,15 +4,30 @@ homeassistant:
   longitude: !secret longitude
   unit_system: metric
   time_zone: Europe/Amsterdam
+
   packages: !include_dir_named integrations
+
   customize: !include customize.yaml
+
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 10.0.1.0/24
+      allow_bypass_login: true
+    - type: homeassistant
+    
+lovelace:
+  mode: yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
+logger: !include includes/system/logger.yaml
+
+http:
+  base_url: http://hass.foobar.io
+  use_x_forwarded_for: true
+  trusted_proxies: 10.0.1.20
 
 # Text to speech
 tts:
@@ -22,3 +37,37 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+# Enables the frontend
+frontend:
+  themes: !include_dir_merge_named themes
+
+#samsungtv:
+#  - host: !secret samsungtv_ip
+#    name: Samsung TV
+#    turn_on_action:
+#      - service: wake_on_lan.send_magic_packet
+#        data:
+#          mac: !secret samsungtv_mac
+
+# Enables person component
+person:
+
+# Enables system health
+system_health:
+
+# Checks for available updates
+updater:
+  reporting: false
+
+# Add configuration panel
+config:
+
+# Track the sun
+sun:
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'

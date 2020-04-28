@@ -1,0 +1,28 @@
+# ======================================================================
+#
+# ui-lovelace.yaml
+#
+# ======================================================================
+
+title: Home
+
+# Custom header configuration
+# https://maykar.github.io/custom-header/#configuration/main
+custom_header:
+  compact_mode: true
+  hide_help: true
+  exceptions:
+    - conditions:
+        user_agent: Mobile
+      config:
+        disable_sidebar: true
+        footer_mode: true
+        hide_config: true
+        options_hide: true
+
+resources:
+  - type: module
+    url: /community_plugin/custom-header/custom-header.js
+
+views:
+  - !include lovelace/10-toon.yaml
