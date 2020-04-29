@@ -1,0 +1,11 @@
+#
+# https://github.com/briis/unifiprotect
+#
+unifiprotect:
+  host: !secret unifiprotect_host
+  username: !secret unifiprotect_username
+  password: !secret unifiprotect_password
+
+camera:
+  - platform: unifiprotect
+

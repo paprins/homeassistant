@@ -46,6 +46,8 @@ lovelace:
       url: /hacsfiles/bignumber-card/bignumber-card.js
     - type: module
       url: /hacsfiles/text-element/text-element.js
+    - type: module
+      url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 # default_config:
