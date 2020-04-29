@@ -1,0 +1,26 @@
+#
+# https://www.home-assistant.io/integrations/tautulli/
+#
+sensor:
+  - platform: tautulli
+    api_key: !secret tautulli_api_key
+    host: !secret tautulli_host
+    port: !secret tautulli_port
+
+  - platform: template
+    sensors:
+      tautulli_lan:
+        friendly_name: "tautulli_lan"
+        entity_id: sensor.tautulli
+        unit_of_measurement: 'Mbps'
+        value_template: "{{states.sensor.tautulli.attributes.lan_bandwidth|float / 1000}}"
+      tautulli_wan:
+        friendly_name: "tautulli_wan"
+        entity_id: sensor.tautulli
+        unit_of_measurement: 'Mbps'
+        value_template: "{{states.sensor.tautulli.attributes.wan_bandwidth|float / 1000}}"
+      tautulli_total:
+        friendly_name: "tautulli_total"
+        entity_id: sensor.tautulli
+        unit_of_measurement: 'Mbps'
+        value_template: "{{states.sensor.tautulli.attributes.total_bandwidth|float / 1000}}"

@@ -114,3 +114,12 @@ sensor:
       - volume_size_total
       - volume_size_used
       - volume_percentage_used
+
+  - platform: afvalbeheer
+    wastecollector: MijnAfvalwijzer
+    resources:
+      - gft
+      - papier
+      - pmd
+    postcode: !secret afvalbeheer_postcode
+    streetnumber: !secret afvalbeheer_streetnumber
