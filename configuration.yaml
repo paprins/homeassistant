@@ -42,6 +42,10 @@ lovelace:
       url: /hacsfiles/custom-header/custom-header.js
     - type: module
       url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+    - type: module
+      url: /hacsfiles/bignumber-card/bignumber-card.js
+    - type: module
+      url: /hacsfiles/text-element/text-element.js
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 # default_config:

@@ -16,3 +16,4 @@ views:
   - !include lovelace/dashboard.yaml
 #  - !include lovelace/toon.yaml
   - !include lovelace/lights.yaml
+  - !include lovelace/streams.yaml

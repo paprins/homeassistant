@@ -1,0 +1,47 @@
+---
+path: media
+title: Media
+icon: mdi:movie-roll
+cards:
+  - type: picture-elements
+    image: /local/images/plex_banner.jpg
+    elements:
+       - type: custom:text-element
+         text: "<b style='color: orange; font-size: 16px'>Total </b>"
+         style: {left: 20%, top: 14%}
+       - type: state-label
+         entity: sensor.tautulli
+         style: {color: white, font-size: 16px, left: 20%, top: 26%}
+       - type: custom:text-element
+         text: "<b style='color: orange; font-size: 16px'>Direct play </b>"
+         style: {left: 55%, top: 14%}
+       - type: state-label
+         entity: sensor.tautulli_direct_plays
+         style: {color: white, font-size: 16px, left: 55%, top: 26%}
+       - type: custom:text-element
+         text: "<b style='color: orange; font-size: 16px'>Direct stream </b>"
+         style: {left: 20%, top: 44%}
+       - type: state-label
+         entity: sensor.tautulli_direct_streams
+         style: {color: white, font-size: 16px, left: 20%, top: 56%}
+
+       - type: custom:text-element
+         text: "<b style='color: orange; font-size: 16px'>Transcode </b>"
+         style: {text-align: left,left: 55%, top: 44%}
+       - type: state-label
+         entity: sensor.tautulli_count_transcode
+         style: {color: white, font-size: 16px, left: 55%, top: 56%}
+
+       - type: custom:text-element
+         text: "<b style='color: orange; font-size: 16px'>LAN bandwidth </b>"
+         style: {left: 20%, top: 74%}
+       - type: state-label
+         entity: sensor.tautulli_lan
+         style: {color: white, font-size: 16px, left: 20%, top: 86%}
+
+       - type: custom:text-element
+         text: "<b text-align: left, style='color: orange; font-size: 16px'>WAN bandwidth </b>"
+         style: {left: 55%, top: 74%}
+       - type: state-label
+         entity: sensor.tautulli_wan
+         style: {color: white, font-size: 16px, left: 55%, top: 86%}
