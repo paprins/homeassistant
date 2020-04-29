@@ -1,7 +1,7 @@
 ---
-path: outside
-title: Buiten
-icon: mdi:nature-people
+path: dashboard
+title: Home
+icon: mdi:home
 cards:
   - type: picture-entity
     state_filter: []

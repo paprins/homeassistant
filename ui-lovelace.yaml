@@ -13,6 +13,6 @@ custom_header:
   hide_help: true
 
 views:
-#  - !include lovelace/10-toon.yaml
-  - !include lovelace/20-outside.yaml
-  - !include lovelace/30-lights.yaml
+  - !include lovelace/dashboard.yaml
+#  - !include lovelace/toon.yaml
+  - !include lovelace/lights.yaml

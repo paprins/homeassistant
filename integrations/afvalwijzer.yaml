@@ -1,0 +1,89 @@
+homeassistant:
+  customize:
+    sensor.trash_today:
+      friendly_name: Vandaag
+    sensor.trash_tomorrow:
+      friendly_name: Morgen
+    sensor.trash_first_next_item:
+      friendly_name: Next pickup item
+    sensor.trash_first_next_in_days:
+      friendly_name: Next pickup in days
+    input_boolean.trash_reminder:
+      icon: mdi:reminder
+      
+    sensor.trash_gft:
+      friendly_name: GFT
+      entity_picture: /local/afvalwijzer/GFT.png
+    sensor.trash_papier:
+      friendly_name: Papier
+      entity_picture: /local/afvalwijzer/Papier.png
+    sensor.trash_pmd:
+      friendly_name: PMD
+      entity_picture: /local/afvalwijzer/PMD.png
+    sensor.trash_restafval:
+      friendly_name: Restafval
+      entity_picture: /local/afvalwijzer/Restafval.png
+
+################################################
+## Inputs
+################################################
+input_boolean:
+  trash_moved:
+    name: Trash has been moved
+    initial: 'off'
+    icon: mdi:delete-empty
+  trash_reminder:
+    name: Trash reminder enabled
+    initial: 'on'
+
+################################################
+## Sensor
+################################################
+sensor:
+  - platform: afvalwijzer
+    provider: mijnafvalwijzer
+    zipcode: !secret afvalwijzer_zipcode
+    housenumber: !secret afvalwijzer_housenumber
+
+  - platform: template
+    sensors:
+      trash_first_next_item_formatted:
+        value_template: >-
+          {% if is_state('sensor.trash_first_next_item', 'gft') %}GFT
+          {% elif is_state('sensor.trash_first_next_item', 'papier') %}Papier
+          {% elif is_state('sensor.trash_first_next_item', 'pmd') %}PMD
+          {% endif %}
+        friendly_name: 'Next pickup item'
+
+  - platform: template
+    sensors:
+      trash_today_formatted:
+        value_template: >-
+          {% if is_state('sensor.trash_today', 'gft') %}GFT
+          {% elif is_state('sensor.trash_today', 'papier') %}Papier
+          {% elif is_state('sensor.trash_today', 'pmd') %}PMD
+          {% else %}Geen
+          {% endif %}
+        friendly_name: 'Vandaag'
+
+  - platform: template
+    sensors:
+      trash_tomorrow_formatted:
+        value_template: >-
+          {% if is_state('sensor.trash_tomorrow', 'gft') %}GFT
+          {% elif is_state('sensor.trash_tomorrow', 'papier') %}Papier
+          {% elif is_state('sensor.trash_tomorrow', 'pmd') %}PMD
+          {% else %}Geen
+          {% endif %}
+        friendly_name: 'Morgen'
+
+  - platform: template
+    sensors:
+      trash_day_after_tomorrow_formatted:
+        value_template: >-
+          {% if is_state('sensor.trash_day_after_tomorrow', 'gft') %}GFT
+          {% elif is_state('sensor.trash_day_after_tomorrow', 'papier') %}Papier
+          {% elif is_state('sensor.trash_day_after_tomorrow', 'pmd') %}PMD
+          {% else %}Geen
+          {% endif %}
+        friendly_name: 'Overmorgen'
