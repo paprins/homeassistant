@@ -3,6 +3,11 @@ path: dashboard
 title: Home
 icon: mdi:home
 cards:
-  - type: picture-entity
-    state_filter: []
-    entity: camera.buienradar_loop
+  - type: vertical-stack
+    cards:
+      - type: picture-entity
+        state_filter: []
+        entity: camera.buienradar_loop
+
+      - type: weather-forecast
+        entity: weather.zwartewaal

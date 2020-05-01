@@ -107,20 +107,6 @@ sensor:
 
   - platform: dnsip
 
-  - platform: synologydsm
-    host: !secret synology_ip
-    port: !secret synology_port
-    ssl: false
-    username: !secret synology_user
-    password: !secret synology_password
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - disk_status
-      - volume_size_total
-      - volume_size_used
-      - volume_percentage_used
-
   - platform: afvalbeheer
     wastecollector: MijnAfvalwijzer
     resources:
