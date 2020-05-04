@@ -10,4 +10,4 @@ cards:
         entity: camera.buienradar_loop
 
       - type: weather-forecast
-        entity: weather.zwartewaal
+        entity: weather.home

@@ -1,10 +1,9 @@
 #
 #
 #
-weather:
+sensor:
   - platform: darksky
     api_key: !secret darksky_api_key
-    mode: daily
     name: Zwartewaal
     latitude: !secret zone_home_latitude
     longitude: !secret zone_home_longitude
