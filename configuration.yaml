@@ -36,18 +36,8 @@ homeassistant:
 
 lovelace:
   mode: yaml
-  
-  resources:
-    - type: module
-      url: /hacsfiles/custom-header/custom-header.js
-    - type: module
-      url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
-    - type: module
-      url: /hacsfiles/bignumber-card/bignumber-card.js
-    - type: module
-      url: /hacsfiles/text-element/text-element.js
-    - type: module
-      url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+
+  resources: !include lovelace/resources.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 # default_config:
@@ -115,3 +105,22 @@ sensor:
       - pmd
     postcode: !secret afvalbeheer_postcode
     streetnumber: !secret afvalbeheer_streetnumber
+    upcomingsensor: 1
+    nameprefix: 1
+    builtinicons: 1
+    dutch: 1
+
+  - platform: template
+    sensors:
+      afval:
+        entity_id: sensor.ophaalkalender_vandaag
+        friendly_name: Afval vandaag
+        icon_template: mdi:delete
+        value_template: >
+          {% if is_state('sensor.mijnafvalwijzer_vandaag', 'pmd') %}
+            Deze avond pmd buiten zetten!
+          {% elif is_state('sensor.mijnafvalwijzer_vandaag', 'gft') %}
+            Deze avond gft buiten zetten!
+          {% elif is_state('sensor.mijnafvalwijzer_vandaag', 'papier') %}
+            Deze avond papier en karton buiten zetten!
+          {% endif %} 

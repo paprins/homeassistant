@@ -13,7 +13,7 @@ custom_header:
   hide_help: true
 
 views:
-  - !include lovelace/dashboard.yaml
-#  - !include lovelace/toon.yaml
-  - !include lovelace/lights.yaml
-  - !include lovelace/streams.yaml
+  - !include lovelace/views/dashboard.yaml
+#  - !include lovelace/views/toon.yaml
+  - !include lovelace/views/lights.yaml
+  - !include lovelace/views/streams.yaml

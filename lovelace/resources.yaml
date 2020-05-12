@@ -1,0 +1,13 @@
+  resources:
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - type: module
+      url: /hacsfiles/custom-header/custom-header.js
+    - type: module
+      url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+    - type: module
+      url: /hacsfiles/bignumber-card/bignumber-card.js
+    - type: module
+      url: /hacsfiles/text-element/text-element.js
+    - type: module
+      url: /hacsfiles/mini-media-player/mini-media-player-bundle.js

@@ -1,0 +1,52 @@
+---
+path: dashboard
+title: Home
+icon: mdi:home
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    min_columns: 1
+    max_columns: 3
+    rebuild: true
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: picture-entity
+                state_filter: []
+                entity: camera.buienradar_loop
+
+              - type: weather-forecast
+                entity: weather.home
+      - break
+      - type: vertical-stack
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.keuken
+            hide:
+              power: true
+              source: true
+            speaker_group:
+              platform: sonos
+              show_group_count: true
+              entities:
+                - entity_id: media_player.woonkamer
+                  name: Woonkamer
+                - entity_id: media_player.eetkamer
+                  name: Eetkamer
+                - entity_id: media_player.boven
+                  name: Boven
+
+      - break
+      - type: horizontal-stack
+        cards:
+          - entities:
+              - name: GFT
+                entity: sensor.mijnafvalwijzer_gft
+              - name: PMD
+                entity: sensor.mijnafvalwijzer_pmd
+              - name: Papier en karton
+                entity: sensor.mijnafvalwijzer_papier
+            type: glance
+                  
