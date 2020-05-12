@@ -1,6 +1,7 @@
 ---
 path: dashboard
 title: Home
+panel: true
 icon: mdi:home
 cards:
   - type: custom:layout-card
@@ -19,6 +20,22 @@ cards:
 
               - type: weather-forecast
                 entity: weather.home
+
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.zwartewaal_temperature
+                hour24: true
+                animate: true
+                decimals: 0
+                show:
+                  labels: true
+                color_thresholds:
+                  - value: 0
+                    color: "#f39c12"
+                  - value: 10
+                    color: "#d35400"
+                  - value: 20
+                    color: "#c0392b"
       - break
       - type: vertical-stack
         cards:
@@ -49,4 +66,5 @@ cards:
               - name: Papier en karton
                 entity: sensor.mijnafvalwijzer_papier
             type: glance
+
                   

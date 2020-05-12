@@ -39,8 +39,8 @@ lovelace:
 
   resources: !include lovelace/resources.yaml
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
-# default_config:
+# camera streaming
+stream:
 
 #https://home-assistant.io/components/config/
 config:

@@ -1,0 +1,25 @@
+
+---
+path: camera
+title: Camera
+icon: mdi:camera
+cards:
+  - type: picture-glance
+    title: Keuken
+    entities:
+      - light.keuken
+    camera_image: camera.keuken
+    camera_view: live
+
+  - type: picture-glance
+    title: Woonkamer
+    entities:
+      - light.woonkamer
+    camera_image: camera.woonkamer
+    camera_view: live
+
+  - type: picture-glance
+    title: Schuur
+    entities: []
+    camera_image: camera.schuur
+    camera_view: live
