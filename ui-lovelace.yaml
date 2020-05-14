@@ -14,6 +14,7 @@ custom_header:
 
 views:
   - !include lovelace/views/dashboard.yaml
+  - !include lovelace/views/smartmeter.yaml
   - !include lovelace/views/camera.yaml
 #  - !include lovelace/views/toon.yaml
   - !include lovelace/views/lights.yaml

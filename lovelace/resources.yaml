@@ -12,3 +12,5 @@
   url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
 - type: module
   url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+- type: module
+  url: /hacsfiles/power-wheel-card/power-wheel-card.js

@@ -1,1 +1,7 @@
-[]
+- alias: 'Het eten is klaar'
+  trigger: []
+  action:
+    service: tts.google_translate_say
+    entity_id: media_player.kamer_isis_speaker
+    data_template:
+      message: 'Het eten is klaar. Kom je eten?'
