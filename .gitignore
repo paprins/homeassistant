@@ -4,6 +4,7 @@
 
 ### Custom ###
 harmony_*.conf
+OZW_Log.txt
 
 ### HomeAssistant ###
 # Files with personal details
