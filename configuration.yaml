@@ -11,6 +11,7 @@ homeassistant:
   elevation: !secret zone_home_elevation
   unit_system: metric
   time_zone: Europe/Amsterdam
+  internal_url: http://hass.foobar.io
   whitelist_external_dirs:
     - /config
     - /share
@@ -54,13 +55,17 @@ history:
 logger: !include includes/system/logger.yaml
 
 http:
-  base_url: http://hass.foobar.io
   use_x_forwarded_for: true
   trusted_proxies: 10.0.1.20
 
 # Text to speech
 tts:
   - platform: google_translate
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+    base_url: http://10.0.1.200:8123
+    service_name: google_say
 
 group: !include groups.yaml
 automation: !include automations.yaml
