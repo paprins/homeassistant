@@ -3,9 +3,9 @@
 #
 # Voice: [Lotte, Ruben]
 #
-tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret amazon_polly_aws_access_key_id
-    aws_secret_access_key: !secret amazon_polly_aws_secret_access_key
-    region_name: eu-west-1
-    voice: Lotte
+# tts:
+#   - platform: amazon_polly
+#     aws_access_key_id: !secret amazon_polly_aws_access_key_id
+#     aws_secret_access_key: !secret amazon_polly_aws_secret_access_key
+#     region_name: eu-west-1
+#     voice: Lotte
