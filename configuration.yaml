@@ -10,15 +10,18 @@ homeassistant:
   longitude: !secret zone_home_longitude
   elevation: !secret zone_home_elevation
   unit_system: metric
+
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Amsterdam
+
   internal_url: http://hass.foobar.io
+
   whitelist_external_dirs:
     - /config
     - /share
 
-  packages: !include_dir_named integrations
-
-  customize: !include customize.yaml
+  customize: !include_dir_merge_named customize
+  packages: !include_dir_merge_named packages
 
   auth_providers:
     - type: trusted_networks
@@ -29,12 +32,6 @@ homeassistant:
 
 # DO THIS: https://www.home-assistant.io/docs/configuration/splitting_configuration/
     
-####################################################
-#                                                  #
-#                     GENERAL                      #
-#                                                  #
-####################################################
-
 lovelace:
   mode: yaml
 
@@ -52,7 +49,10 @@ hassio:
 #https://home-assistant.io/components/history/
 history:
 
-logger: !include includes/system/logger.yaml
+logger: !include includes/logger.yaml
+
+# Track the sun
+sun:
 
 http:
   use_x_forwarded_for: true
@@ -68,10 +68,21 @@ tts:
     base_url: http://10.0.1.200:8123
     service_name: google_say
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
+group: !include_dir_merge_named group
+automation: !include_dir_merge_list automation
+script: !include_dir_merge_named script
+scene: !include_dir_merge_list scene
+
+# binary_sensor: !include_dir_merge_list binary_sensor
+# climate: !include_dir_merge_list climate
+# input_boolean: !include_dir_merge_named input_boolean
+# input_datetime: !include_dir_merge_named input_datetime
+# input_number: !include_dir_merge_named input_number
+# input_select: !include_dir_merge_named input_select
+# light: !include_dir_merge_list light
+# media_player: !include_dir_merge_list media_player
+# sensor: !include_dir_merge_list sensor
+# zone: !include_dir_merge_list zone
 
 # Enables the frontend
 frontend:
@@ -94,13 +105,32 @@ shelly:
 
 # Enables person component
 person:
+  - name: Pascal
+    id: pascal
+    user_id: a7fee9cc3e674efba3b1a8cd5eb461af
+    device_trackers:
+      - device_tracker.pascals_iphone_2
 
 # Enables system health
 system_health:
 
 # Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   reporting: false
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - homekit
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
 
 ################################################
 ## Notify
@@ -110,6 +140,10 @@ notify:
     platform: pushover
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
+  - name: all_devices
+    platform: group
+    services:
+      - service: mobile_app_pprins
 
 sensor:
   # https://www.home-assistant.io/integrations/dsmr/
