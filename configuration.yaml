@@ -3,7 +3,7 @@
 #                 HOME ASSISTANT                   #
 #                                                  #
 ####################################################
-
+# https://github.com/ashwinvandijk/home-assistant
 homeassistant:
   name: Home
   latitude: !secret zone_home_latitude
@@ -61,6 +61,7 @@ http:
 # Text to speech
 tts:
   - platform: google_translate
+    language: nl
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
@@ -87,6 +88,9 @@ frontend:
 # https://www.home-assistant.io/integrations/zwave/
 zwave:
   usb_path: /dev/serial/by-id/usb-0658_0200-if00
+
+# https://github.com/StyraHem/ShellyForHASS
+shelly:
 
 # Enables person component
 person:

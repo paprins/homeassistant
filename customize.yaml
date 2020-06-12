@@ -2,3 +2,5 @@
 # Customize
 # https://www.home-assistant.io/docs/configuration/customizing-devices/
 #
+media_player.kamer_isis_speaker:
+  friendly_name: google_home_isis

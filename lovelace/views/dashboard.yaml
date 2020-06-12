@@ -6,6 +6,30 @@ icon: mdi:home
 cards:
   - type: custom:layout-card
     cards:
+      - type: custom:button-card
+        icon: mdi:silverware
+        label: kom je eten?
+        show_label: true
+        entity: media_player.kamer_isis_speaker
+        tap_action:
+          action: call-service
+          service: tts.google_say
+          service_data:
+            entity_id: media_player.kamer_isis_speaker
+            message: Het eten is klaar, kom je eten? PS, dit is een test.
+      - type: entity-button
+        entity: media_player.kamer_isis_speaker
+        hold_action:
+          action: none
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: call-service
+          service: tts.google_say
+          service_data:
+            entity_id: media_player.kamer_isis_speaker
+            message: Het eten is klaar, kom je eten?
+            language: 'nl'
       - type: picture-entity
         state_filter: []
         entity: camera.buienradar_loop
