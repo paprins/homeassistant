@@ -5,5 +5,5 @@ weather:
     longitude: !secret zone_home_longitude
     forecast: true
 
-#camera:
-#  - platform: buienradar
+camera:
+  - platform: buienradar
