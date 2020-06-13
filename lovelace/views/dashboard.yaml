@@ -6,26 +6,20 @@ icon: mdi:home
 cards:
   - type: custom:layout-card
     cards:
-      - type: custom:button-card
-        icon: mdi:silverware
-        label: kom je eten?
-        show_label: true
-        entity: media_player.nest_mini_isis
-        tap_action:
-          action: call-service
-          service: tts.google_say
-          service_data:
-            entity_id: media_player.nest_mini_isis
-            message: Het eten is klaar, kom je eten? PS, dit is een test.
-
-      - type: custom:button-card
-        icon: mdi:bullhorn-outline
-        show_label: false
-        size: 50%
-        color: auto
-        tap_action:
-          action: call-service
-          service: script.intercom_message
+      - type: vertical-stack
+        title: Announce
+        cards:
+          - type: entities
+            entities:
+              - input_select.googlehome
+              - input_text.message
+              - input_number.intercom_volume
+              - type: call-service
+                name: ' '
+                icon: ' '
+                service: script.intercom_message
+                service_data:
+                  entity_id: script.turn_on
 
       - type: picture-entity
         state_filter: []
