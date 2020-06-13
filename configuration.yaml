@@ -20,7 +20,7 @@ homeassistant:
     - /config
     - /share
 
-  customize: !include_dir_named customize
+  customize: !include customize.yaml
 
   #
   # Packages in Home Assistant provide a way to bundle different component’s configuration together.
