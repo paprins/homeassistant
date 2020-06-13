@@ -1,0 +1,114 @@
+##############################################################################################################
+# Package for intercom and notification messaging using Google Home media_players and TTS
+##############################################################################################################
+
+homeassistant:
+  customize:
+    script.intercom_message:
+      action_name: 'Announce'
+      icon: mdi:text-to-speech
+
+    input_number.intercom_volume:
+      templates:
+#        icon: >
+#          return 'mdi:numeric-' + state*10;
+        icon_color: >
+          if (state === '0.0') return 'rgb(145,227,237)';
+          if (state <= '0.1') return 'rgb(105,212,231)';
+          if (state <= '0.2') return 'rgb(46,147,238)';
+          if (state <= '0.3') return 'rgb(0,220,16)';
+          if (state <= '0.4') return 'rgb(0,195,13)';
+          if (state <= '0.5') return 'rgb(250,255,0)';
+          if (state <= '0.6') return 'rgb(252,150,0)';
+          if (state <= '0.7') return 'rgb(218,53,0)';
+          if (state <= '0.8') return 'rgb(255,0,0)';
+          if (state <= '0.9') return 'rgb(154,0,0)';
+          if (state <= '1.0') return 'rgb(81,0,0)';
+
+##############################################################################################################
+# Groups
+##############################################################################################################
+
+group:
+  intercom:
+    name: 'Intercom'
+    entities:
+      - input_text.message
+      - input_select.googlehome
+      - input_number.intercom_volume
+      - script.intercom_message
+
+  broadcast:
+    name: 'Broadcast'
+    control: hidden
+    entities:
+      - media_player.nest_mini_isis
+      - media_player.nest_mini_kantoor
+
+##############################################################################################################
+# Inputs
+##############################################################################################################
+
+input_select:
+  googlehome:
+    name: 'Select Google home:'
+    options:
+      - Isis
+      - Kantoor
+      - Broadcast (all)
+    initial: Kantoor
+    icon: mdi:google-home
+
+input_text:
+  message:
+    name: 'Message:'
+
+input_number:
+  intercom_volume:
+    name: Volume
+    icon: mdi:volume-high
+    #initial: 0.5
+    min: 0
+    max: 1
+    step: 0.05
+    unit_of_measurement: '%'
+
+##############################################################################################################
+# Scripts
+##############################################################################################################
+
+script:
+  intercom_message:
+    alias: 'Intercom message'
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: >
+            {% set state = states('input_select.googlehome') %}
+            {% if state in ['Isis','Kantoor'] %} media_player.nest_mini_{{(state)|lower}}
+            {% else %} group.broadcast
+            {% endif %}
+          message: >
+            {{states('input_text.message')}}
+
+##############################################################################################################
+# Automations
+##############################################################################################################
+
+automation:
+  - alias: 'Set Google Home volume'
+    id: 'Set Google Home volume'
+    trigger:
+      platform: state
+      entity_id: input_number.intercom_volume
+    condition: []
+    action:
+      service: media_player.volume_set
+      data_template:
+        entity_id: >
+            {% set state = states('input_select.googlehome') %}
+            {% if state in ['Isis','Kantoor'] %} media_player.nest_mini_{{(state)|lower}}
+            {% else %} group.broadcast
+            {% endif %}
+        volume_level: >
+          {{  states('input_number.intercom_volume')|float }}
