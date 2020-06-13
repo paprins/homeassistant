@@ -40,7 +40,6 @@ group:
 
   broadcast:
     name: 'Broadcast'
-    control: hidden
     entities:
       - media_player.nest_mini_isis
       - media_player.nest_mini_kantoor
