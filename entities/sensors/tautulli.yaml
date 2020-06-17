@@ -1,0 +1,10 @@
+---
+platform: tautulli
+api_key: !secret tautulli_api_key
+host: !secret tautulli_host
+port: !secret tautulli_port
+monitored_conditions:
+  - title
+  - platform
+  - player
+  - ip_address

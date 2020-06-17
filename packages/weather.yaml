@@ -1,3 +1,9 @@
+---
+#
+# This handles the loading of my weather platforms.
+#
+# https://www.home-assistant.io/integrations/weather/
+#
 weather:
   - platform: buienradar
     name: zwartewaal

@@ -1,3 +1,0 @@
-default: warn
-logs:
-  homeassistant.util.packages: info

@@ -1,0 +1,15 @@
+---
+#
+# The apple_tv platform allows you to control an Apple TV (3rd and 4th generation).
+#
+# https://www.home-assistant.io/integrations/apple_tv/
+#
+# Note: NOT WORKING CURRENTLY !!!
+# Older version of 'pyatv' has been installed. Newer version seem to work, but still ClientConnectorError in log.
+#
+
+# apple_tv:
+#   - host: 10.0.1.24
+#     login_id: 86058DE5-A7A1-496E-8EE6-789AC1D2E459
+#     name: Apple TV Kantoor
+#     credentials: f609332b0211294f1bb628bf1ac6050cbcfb3d1f4474a22578f391c29250c73b:06af293c69dd8f47d9382ddbac14972ae4d79a67b492271231cbaa4a2712c8bc:62633239316330632d303361352d343330642d386531372d633365653666323032623964:32373137303761322d333837632d343464632d626164342d663565656637653964303232

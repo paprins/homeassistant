@@ -1,0 +1,18 @@
+  
+---
+# The logger integration lets you define the level of logging activities
+# in Home Assistant.
+#
+# I use this to reduce error messages for specific things,
+# so I can focus on log messages that matter to me.
+#
+logger:
+  default: warn
+
+  logs:
+    # Honestly, Z-Wave + Home Assistant: not so good.
+    # Hopefully it will be better when this all gets replaced
+    # Until that time, I'm not interested in warnings.
+    homeassistant.components.zwave: error
+
+    homeassistant.util.packages: info

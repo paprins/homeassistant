@@ -1,0 +1,12 @@
+---
+# The HomeKit component allows you to forward entities from Home Assistant
+# to Apple HomeKit, so they can be controlled from Apple’s Home app and Siri.
+#
+# https://www.home-assistant.io/integrations/homekit
+#
+homekit:
+  # Start the HomeKit Server automatically.
+  auto_start: true
+
+  # The default: "Home Assistant Bridge", I like it to be just "Home Assistant"
+  name: Home Assistant

@@ -1,0 +1,8 @@
+---
+#
+# The dsmr_reader sensor platform allows you to easily add all sensors that DSMR Reader exposes to MQTT. It adds a separate sensor for every field in the MQTT topics.
+#
+# https://www.home-assistant.io/integrations/dsmr/
+#
+
+# platform: dsmr

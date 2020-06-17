@@ -1,0 +1,22 @@
+---
+# The time and date (time_date) sensor platform.
+# Has the time in various formats, the date, or both.
+#
+# This is usefull for displaying and automation purposes.
+#
+# https://www.home-assistant.io/integrations/time_date/
+#
+# - 'time'
+# - 'date'
+# - 'date_time'
+# - 'date_time_utc'
+# - 'date_time_iso'
+# - 'time_date'
+# - 'time_utc'
+# - 'beat'
+#
+platform: time_date
+display_options:
+  - 'time'
+  - 'date'
+  - 'time_utc'

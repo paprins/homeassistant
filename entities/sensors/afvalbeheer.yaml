@@ -1,0 +1,18 @@
+---
+#
+# Provides Home Assistant sensors for multiple Dutch and Belgium waste collectors using REST API.
+#
+# https://github.com/pippyn/Home-Assistant-Sensor-Afvalbeheer
+#
+platform: afvalbeheer
+wastecollector: MijnAfvalwijzer
+resources:
+  - gft
+  - papier
+  - pmd
+postcode: !secret afvalbeheer_postcode
+streetnumber: !secret afvalbeheer_streetnumber
+upcomingsensor: 1
+nameprefix: 1
+builtinicons: 1
+dutch: 1

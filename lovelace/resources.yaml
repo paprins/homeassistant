@@ -16,3 +16,5 @@
   url: /hacsfiles/power-wheel-card/power-wheel-card.js
 - type: module
   url: /hacsfiles/button-card/button-card.js
+- type: module
+  url: /hacsfiles/lovelace-card-templater/lovelace-card-templater.js

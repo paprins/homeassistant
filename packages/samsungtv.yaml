@@ -1,0 +1,14 @@
+---
+#
+# The samsungtv platform allows you to control a Samsung Smart TV.
+#
+# https://www.home-assistant.io/integrations/samsungtv/
+#
+
+#samsungtv:
+#  - host: !secret samsungtv_ip
+#    name: Samsung TV
+#    turn_on_action:
+#      - service: wake_on_lan.send_magic_packet
+#        data:
+#          mac: !secret samsungtv_mac

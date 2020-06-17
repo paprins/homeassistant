@@ -1,0 +1,7 @@
+---
+#
+# The conversation integration allows you to converse with Home Assistant.
+#
+# https://www.home-assistant.io/integrations/conversation/
+#
+conversation:

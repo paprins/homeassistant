@@ -1,0 +1,15 @@
+---
+platform: template
+sensors:
+  afval:
+    entity_id: sensor.ophaalkalender_vandaag
+    friendly_name: Afval vandaag
+    icon_template: mdi:delete
+    value_template: >
+      {% if is_state('sensor.mijnafvalwijzer_vandaag', 'pmd') %}
+        Deze avond pmd buiten zetten!
+      {% elif is_state('sensor.mijnafvalwijzer_vandaag', 'gft') %}
+        Deze avond gft buiten zetten!
+      {% elif is_state('sensor.mijnafvalwijzer_vandaag', 'papier') %}
+        Deze avond papier en karton buiten zetten!
+      {% endif %}

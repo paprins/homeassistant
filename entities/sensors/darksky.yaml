@@ -1,0 +1,19 @@
+---
+#
+#
+#
+#
+#
+platform: darksky
+api_key: !secret darksky_api_key
+name: Zwartewaal
+latitude: !secret zone_home_latitude
+longitude: !secret zone_home_longitude
+monitored_conditions:
+  - icon
+  - summary
+  - humidity
+  - temperature
+  - temperature_high
+  - temperature_low
+  - daily_summary
