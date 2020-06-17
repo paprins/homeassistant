@@ -18,3 +18,5 @@
   url: /hacsfiles/button-card/button-card.js
 - type: module
   url: /hacsfiles/lovelace-card-templater/lovelace-card-templater.js
+- url: /hacsfiles/bar-card/bar-card.js
+  type: js
