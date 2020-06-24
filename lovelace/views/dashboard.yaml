@@ -28,22 +28,6 @@ cards:
       - type: weather-forecast
         entity: weather.home
 
-      - type: custom:mini-graph-card
-        entities:
-          - sensor.zwartewaal_temperature
-        hour24: true
-        animate: true
-        decimals: 0
-        show:
-          labels: true
-        color_thresholds:
-          - value: 0
-            color: "#f39c12"
-          - value: 10
-            color: "#d35400"
-          - value: 20
-            color: "#c0392b"
-
       - type: custom:mini-media-player
         entity: media_player.keuken
         hide:
@@ -60,13 +44,13 @@ cards:
             - entity_id: media_player.boven
               name: Boven
 
-      - entities:
+      -  type: glance
+         entities:
           - name: GFT
             entity: sensor.mijnafvalwijzer_gft
           - name: PMD
             entity: sensor.mijnafvalwijzer_pmd
           - name: Papier en karton
             entity: sensor.mijnafvalwijzer_papier
-        type: glance
 
                   

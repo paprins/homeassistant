@@ -10,4 +10,4 @@ person:
     id: pascal
     user_id: a7fee9cc3e674efba3b1a8cd5eb461af
     device_trackers:
-      - device_tracker.pascals_iphone_2
+      - device_tracker.pascals_iphone

@@ -9,8 +9,11 @@ title: Home
 # Custom header configuration
 # https://maykar.github.io/custom-header/#configuration/main
 custom_header:
+  elements_color: var(--primary-text-color);
+  tab_indicator_color: var(--primary-text-color);
+  background: var(--primary-background-color);
   compact_mode: true
-  hide_help: true
+
 
 views:
   - !include lovelace/views/dashboard.yaml
