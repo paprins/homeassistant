@@ -1,0 +1,10 @@
+---
+path: pool
+title: Zwembad
+icon: mdi:pool
+cards:
+  - type: entities
+    entities:
+      - entity: switch.shelly_shsw_1_8caab505bdb8
+        name: Pomp
+        state_color: true
